@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chat App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <!-- Header -->
+            <header class="sidebar-header">
+                <div class="profile-info">
+                    <div class="profile-avatar">YU</div>
+                    <div class="profile-details">
+                        <div class="profile-name">You</div>
+                        <div class="profile-status">online</div>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="add-contact-btn" id="addContactBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15,4A4,4 0 0,0 11,8A4,4 0 0,0 15,12A4,4 0 0,0 19,8A4,4 0 0,0 15,4M15,5.9A2.1,2.1 0 0,1 17.1,8A2.1,2.1 0 0,1 15,10.1A2.1,2.1 0 0,1 12.9,8A2.1,2.1 0 0,1 15,5.9M4,7V10H1V12H4V15H6V12H9V10H6V7H4M15,13C12.33,13 7,14.33 7,17V20H23V17C23,14.33 17.67,13 15,13M15,14.9C17.97,14.9 21.1,16.36 21.1,17V18.1H8.9V17C8.9,16.36 12,14.9 15,14.9Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Search -->
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search contacts...">
+            </div>
+
+            <!-- Contact List -->
+            <div class="contact-list" id="contactList">
+                <!-- Contacts will be populated by JavaScript -->
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="main-chat">
+            <!-- Chat Header -->
+            <header class="chat-header" id="chatHeader">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </button>
+                <div class="chat-info">
+                    <div class="chat-avatar" id="chatAvatar">?</div>
+                    <div class="chat-details">
+                        <div class="chat-name" id="chatName">Select a contact</div>
+                        <div class="chat-status" id="chatStatus">to start messaging</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Messages -->
+            <div class="messages-container" id="messagesContainer">
+                <div class="empty-state">
+                    <div class="empty-icon">💬</div>
+                    <h3>Welcome to Simple Chat</h3>
+                    <p>Select a contact to start messaging or add a new contact</p>
+                </div>
+            </div>
+
+            <!-- Message Input -->
+            <div class="message-input-area" id="messageInputArea" style="display: none;">
+                <div class="input-wrapper">
+                    <input type="text" class="message-input" id="messageInput" placeholder="Type a message...">
+                    <button class="send-btn" id="sendBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Mobile Backdrop -->
+        <div class="mobile-backdrop" id="mobileBackdrop"></div>
+    </div>
+
+    <!-- Add Contact Modal -->
+    <div class="modal hidden" id="addContactModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Contact</h3>
+                <button class="modal-close" id="closeModal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="contactName" placeholder="Enter full name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="contactPhone" placeholder="Enter phone number">
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn--secondary" id="cancelAdd">Cancel</button>
+                    <button class="btn btn--primary" id="saveContact">Add Contact</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="notification hidden" id="notification">
+        <div class="notification-content">
+            <span id="notificationText"></span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
